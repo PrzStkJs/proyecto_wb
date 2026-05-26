@@ -1,0 +1,448 @@
+/* =============================================
+   RESET BÁSICO Y CONFIGURACIÓN GLOBAL
+   ============================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #fafafa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   HEADER ROJO
+   ============================================= */
+.header {
+  width: 100%;
+  background-color: #c40000;
+  padding: 24px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.logo-container img {
+  width: 170px;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.logo-container span {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* =============================================
+   CONTENIDO PRINCIPAL
+   ============================================= */
+.contenido-registro {
+  flex: 1;
+  padding: 2rem 3rem 3rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* =============================================
+   BREADCRUMB
+   ============================================= */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-enlace {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #888888;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-enlace:hover {
+  color: #dc2626;
+}
+
+.breadcrumb-enlace svg {
+  width: 16px;
+  height: 16px;
+}
+
+.breadcrumb-separador {
+  color: #cccccc;
+}
+
+.breadcrumb-actual {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* =============================================
+   TÍTULO
+   ============================================= */
+.titulo-registro {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.8rem;
+}
+
+/* =============================================
+   TEXTO DESCRIPTIVO
+   ============================================= */
+.descripcion-registro {
+  font-size: 1.05rem;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+}
+
+/* =============================================
+   BARRA DE HERRAMIENTAS (3/4 + 1/4)
+   ============================================= */
+.barra-herramientas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* =============================================
+   LADO IZQUIERDO
+   ============================================= */
+.barra-izquierda {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.titulo-ultimas {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.buscador:focus-within {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.06);
+}
+
+.buscador-icono {
+  width: 18px;
+  height: 18px;
+  color: #999999;
+  flex-shrink: 0;
+}
+
+.buscador-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  font-family: inherit;
+}
+
+.buscador-input::placeholder {
+  color: #bbbbbb;
+}
+
+/* =============================================
+   LADO DERECHO
+   ============================================= */
+.barra-derecha {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.boton-nueva-visita {
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.boton-nueva-visita:hover {
+  background: #b91c1c;
+}
+
+/* =============================================
+   LISTA DE VISITAS (RECUADRO GRANDE)
+   ============================================= */
+.lista-visitas {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 200px;
+}
+
+/* =============================================
+   TARJETA DE VISITA
+   ============================================= */
+.tarjeta-visita {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 1.8rem;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.tarjeta-visita:hover {
+  border-color: #dc2626;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.08);
+}
+
+/* --- Información (lado izquierdo) --- */
+.tarjeta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.tarjeta-titulo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.15rem;
+}
+
+.tarjeta-entidad {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.4;
+}
+
+.tarjeta-fecha-hora {
+  font-size: 0.9rem;
+  color: #888888;
+  margin-bottom: 0.3rem;
+}
+
+/* --- Lista de acompañantes --- */
+.tarjeta-acompanantes {
+  list-style: none;
+  padding: 0;
+  margin: 0.3rem 0 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.tarjeta-acompanante-item {
+  font-size: 0.9rem;
+  color: #666666;
+  padding-left: 0.2rem;
+}
+
+/* --- Enlace "Agregar más personas" --- */
+.tarjeta-agregar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #dc2626;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  margin-top: 0.3rem;
+}
+
+.tarjeta-agregar:hover {
+  color: #b91c1c;
+  text-decoration: underline;
+}
+
+.tarjeta-agregar-icono {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+/* --- Botón "Registrar salidas" (lado derecho) --- */
+.tarjeta-accion {
+  flex-shrink: 0;
+}
+
+.boton-registrar-salida {
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.boton-registrar-salida:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.boton-registrar-salida:active {
+  transform: translateY(0);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+  .header {
+    padding: 18px 25px;
+  }
+
+  .logo-container img {
+    width: 130px;
+  }
+
+  .logo-container span {
+    font-size: 1.4rem;
+  }
+
+  .contenido-registro {
+    padding: 1.5rem 1.5rem 2rem;
+  }
+
+  .titulo-registro {
+    font-size: 1.7rem;
+  }
+
+  .barra-herramientas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+  }
+
+  .barra-derecha {
+    justify-content: stretch;
+  }
+
+  .boton-nueva-visita {
+    width: 100%;
+    text-align: center;
+  }
+
+  .tarjeta-visita {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .tarjeta-accion {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 14px 16px;
+  }
+
+  .logo-container {
+    gap: 12px;
+  }
+
+  .logo-container img {
+    width: 90px;
+  }
+
+  .logo-container span {
+    font-size: 1rem;
+  }
+
+  .contenido-registro {
+    padding: 1rem 1rem 1.5rem;
+  }
+
+  .titulo-registro {
+    font-size: 1.4rem;
+  }
+
+  .descripcion-registro {
+    font-size: 0.9rem;
+  }
+
+  .barra-herramientas {
+    padding: 1.2rem 1rem;
+  }
+
+  .lista-visitas {
+    padding: 1.2rem 1rem;
+  }
+
+  .tarjeta-visita {
+    padding: 1.2rem 1rem;
+  }
+
+  .boton-registrar-salida {
+    width: 100%;
+    text-align: center;
+  }
+}

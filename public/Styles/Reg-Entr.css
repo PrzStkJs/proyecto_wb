@@ -1,0 +1,374 @@
+/* =============================================
+   RESET BÁSICO Y CONFIGURACIÓN GLOBAL
+   ============================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* =============================================
+   CONTENEDOR PRINCIPAL
+   ============================================= */
+.contenedor-formulario {
+  width: 100%;
+  max-width: 780px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  padding: 4rem 3.5rem;
+}
+
+/* =============================================
+   TÍTULO PRINCIPAL
+   ============================================= */
+.titulo-formulario {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 3.5rem;
+}
+
+/* =============================================
+   FORMULARIO
+   ============================================= */
+.formulario-visita {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* =============================================
+   SECCIÓN (FIELDSET)
+   ============================================= */
+.seccion {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.titulo-seccion {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #dc2626;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #f0f0f0;
+  width: 100%;
+}
+
+/* =============================================
+   GRUPO DE CAMPO
+   ============================================= */
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.etiqueta {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444444;
+}
+
+/* =============================================
+   INPUTS Y SELECTS (ESTILO UNIFICADO)
+   ============================================= */
+.input-texto,
+select.input-texto {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  background: #f9f9f9;
+  border: 2px solid #e5e5e5;
+  border-radius: 14px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+/* Placeholder para inputs */
+.input-texto::placeholder {
+  color: #bbbbbb;
+}
+
+/* Placeholder para selects (primera opción disabled) */
+select.input-texto option[value=""] {
+  color: #bbbbbb;
+}
+
+/* Flecha personalizada para selects */
+select.input-texto {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999999' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  background-size: 18px;
+  padding-right: 3rem;
+}
+
+/* Foco para inputs y selects */
+.input-texto:focus,
+select.input-texto:focus {
+  border-color: #dc2626;
+  background: #ffffff;
+  box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.06);
+  outline: none;
+}
+
+/* Hover para inputs y selects */
+.input-texto:hover,
+select.input-texto:hover {
+  border-color: #d0d0d0;
+}
+
+.input-texto:hover:focus,
+select.input-texto:hover:focus {
+  border-color: #dc2626;
+}
+
+/* Color del texto cuando se selecciona una opción */
+select.input-texto option:not([value=""]) {
+  color: #1a1a1a;
+}
+
+/* =============================================
+   INPUT FIJO (SOLO LECTURA)
+   ============================================= */
+.input-fijo {
+  background: #f0f0f0;
+  color: #666666;
+  cursor: not-allowed;
+  user-select: none;
+  background-image: none;
+  padding-right: 1.5rem;
+}
+
+.input-fijo:focus {
+  border-color: #e5e5e5;
+  background: #f0f0f0;
+  box-shadow: none;
+}
+
+/* =============================================
+   BOTÓN CONTINUAR
+   ============================================= */
+.boton-continuar {
+  width: 100%;
+  padding: 1.4rem;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  margin-top: 1rem;
+}
+
+.boton-continuar:hover {
+  background: #b91c1c;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.25);
+}
+
+.boton-continuar:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.boton-continuar:focus-visible {
+  outline: 4px solid #dc2626;
+  outline-offset: 4px;
+}
+
+/* =============================================
+   MENSAJES DNI
+   ============================================= */
+.mensaje-api {
+  font-size: 0.85rem;
+  margin-top: 5px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.mensaje-cargando {
+  color: #666666;
+}
+
+.mensaje-exito {
+  color: #2e7d32;
+}
+
+.mensaje-error {
+  color: #c62828;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .contenedor-formulario {
+    padding: 3rem 2rem;
+    border-radius: 20px;
+  }
+
+  .titulo-formulario {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .formulario-visita {
+    gap: 2.5rem;
+  }
+
+  .seccion {
+    gap: 1.8rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.3rem;
+  }
+
+  .input-texto,
+  select.input-texto {
+    padding: 1.1rem 1.3rem;
+    font-size: 1.05rem;
+  }
+
+  select.input-texto {
+    padding-right: 2.8rem;
+    background-position: right 1rem center;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .contenedor-formulario {
+    padding: 2.5rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .titulo-formulario {
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+  }
+
+  .formulario-visita {
+    gap: 2rem;
+  }
+
+  .seccion {
+    gap: 1.5rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.2rem;
+  }
+
+  .etiqueta {
+    font-size: 0.95rem;
+  }
+
+  .input-texto,
+  select.input-texto {
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  select.input-texto {
+    padding-right: 2.5rem;
+    background-position: right 0.9rem center;
+    background-size: 16px;
+  }
+
+  .boton-continuar {
+    padding: 1.1rem;
+    font-size: 1.1rem;
+    border-radius: 14px;
+  }
+}
+
+/* =============================================
+   PANTALLAS GRANDES
+   ============================================= */
+@media (min-width: 1200px) {
+  .contenedor-formulario {
+    max-width: 880px;
+    padding: 5rem 4rem;
+  }
+
+  .titulo-formulario {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .formulario-visita {
+    gap: 4rem;
+  }
+
+  .seccion {
+    gap: 2.5rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.6rem;
+    padding-bottom: 1rem;
+  }
+
+  .etiqueta {
+    font-size: 1.05rem;
+  }
+
+  .input-texto,
+  select.input-texto {
+    padding: 1.3rem 1.6rem;
+    font-size: 1.15rem;
+  }
+
+  select.input-texto {
+    padding-right: 3.2rem;
+  }
+
+  .boton-continuar {
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+  }
+}

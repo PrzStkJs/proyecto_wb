@@ -1,0 +1,401 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at 20% 50%, #1a0a0a 0%, #0a0505 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Patrón de grid sutil estilo tecnológico */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.lector-container {
+    width: 100%;
+    max-width: 600px;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.lector-card {
+    background: linear-gradient(135deg, #1e1a1a 0%, #140f0f 100%);
+    border-radius: 28px;
+    padding: 45px 38px 45px 38px;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.06),
+        0 20px 40px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* Borde metálico superior estilo RTX - Rojo */
+.lector-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        #ff0033 30%,
+        #8b0000 70%,
+        transparent 100%);
+    box-shadow: 0 0 10px rgba(255,0,51,0.5);
+}
+
+/* Efecto de brillo interior */
+.lector-card::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: 27px;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.02) 0%, transparent 80%);
+    pointer-events: none;
+}
+
+.lector-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #b0a0a0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: -0.3px;
+    text-shadow: 0 0 20px rgba(255,0,51,0.3);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.lector-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff0033, #8b0000, #ff0033);
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(255,0,51,0.6);
+}
+
+.lector-alert {
+    background: linear-gradient(135deg, #1a1010 0%, #110a0a 100%);
+    border-left: 3px solid #ff0033;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+.lector-alert p {
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.lector-alert strong {
+    color: #ff0033;
+    font-weight: 800;
+    text-shadow: 0 0 5px rgba(255,0,51,0.3);
+}
+
+/* Imagen con marco rojo oscuro */
+.lector-image {
+    background: linear-gradient(135deg, #0a0505 0%, #150a0a 100%);
+    border-radius: 20px;
+    padding: 18px;
+    text-align: center;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255,0,51,0.3);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+    position: relative;
+}
+
+.lector-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 19px;
+    background: linear-gradient(135deg, rgba(255,0,51,0.05) 0%, rgba(139,0,0,0.05) 100%);
+    pointer-events: none;
+}
+
+.lector-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    filter: brightness(1.1) contrast(1.05) drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.lector-img:hover {
+    transform: scale(1.02);
+    filter: brightness(1.15) contrast(1.1) drop-shadow(0 6px 12px rgba(255,0,51,0.2));
+}
+
+/* Checkbox - Cuadrado, dark rojizo, estilo RTX */
+.lector-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, #1a1010 0%, #120a0a 100%);
+    padding: 16px 22px;
+    border-radius: 16px;
+    margin-bottom: 35px;
+    border: 1px solid rgba(255,0,51,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.02);
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.lector-checkbox:hover {
+    background: linear-gradient(135deg, #201515 0%, #160e0e 100%);
+    border-color: rgba(255,0,51,0.5);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* Checkbox cuadrado con estilo rojo platinado */
+.lector-check {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background: #0a0505;
+    border: 2px solid rgba(255,0,51,0.4);
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.2s ease;
+    margin: 0;
+}
+
+.lector-check:hover {
+    border-color: #ff0033;
+    box-shadow: 0 0 8px rgba(255,0,51,0.3);
+}
+
+.lector-check:checked {
+    background: linear-gradient(135deg, #ff0033 0%, #8b0000 100%);
+    border-color: #ff0033;
+    box-shadow: 0 0 12px rgba(255,0,51,0.5);
+}
+
+.lector-check:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+.lector-label {
+    font-size: 1.05rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #e0c0c0 0%, #b09090 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+    user-select: none;
+    flex: 1;
+    letter-spacing: 0.3px;
+    text-shadow: 0 0 5px rgba(255,0,51,0.2);
+}
+
+/* Botones con estilo dark rojizo RTX */
+.lector-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    max-width: 200px;
+    text-transform: uppercase;
+}
+
+/* Botón Continuar - Rojo neón intenso */
+.btn-continuar {
+    background: linear-gradient(135deg, #ff0033 0%, #8b0000 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255,0,51,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,0,51,0.5);
+}
+
+.btn-continuar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-continuar:hover::before {
+    left: 100%;
+}
+
+.btn-continuar:hover {
+    background: linear-gradient(135deg, #ff2050 0%, #aa0010 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,0,51,0.4);
+    border-color: #ff0033;
+}
+
+.btn-continuar:active {
+    transform: translateY(0px);
+}
+
+.btn-continuar:disabled {
+    background: linear-gradient(135deg, #3a2a2a 0%, #2a1a1a 100%);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.5;
+    border-color: rgba(255,255,255,0.1);
+}
+
+/* Botón Cancelar - Estilo rojo platinado oscuro */
+.btn-cancelar {
+    background: linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%);
+    color: #c0a0a0;
+    border: 1px solid rgba(255,0,51,0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+.btn-cancelar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,0,51,0.08), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-cancelar:hover::before {
+    left: 100%;
+}
+
+.btn-cancelar:hover {
+    background: linear-gradient(135deg, #352020 0%, #221515 100%);
+    transform: translateY(-2px);
+    color: #ff0033;
+    border-color: rgba(255,0,51,0.6);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+.btn-cancelar:active {
+    transform: translateY(0px);
+}
+
+/* Mensaje de error */
+.error-message {
+    margin-top: 22px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #1a0a0a 0%, #110505 100%);
+    border-radius: 12px;
+    color: #ff0033;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    border-left: 3px solid #ff0033;
+    border-right: 1px solid rgba(255,0,51,0.3);
+    display: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.error-message.show {
+    display: block;
+    animation: fadeSlide 0.3s ease;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 550px) {
+    .lector-card {
+        padding: 30px 22px;
+    }
+
+    .lector-title {
+        font-size: 1.35rem;
+    }
+
+    .lector-checkbox {
+        padding: 14px 18px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.8rem;
+        max-width: 160px;
+    }
+
+    .lector-label {
+        font-size: 0.95rem;
+    }
+
+    .lector-check {
+        width: 20px;
+        height: 20px;
+    }
+}

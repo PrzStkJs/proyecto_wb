@@ -1,0 +1,469 @@
+/* =============================================
+   RESET BÁSICO Y CONFIGURACIÓN GLOBAL
+   ============================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #fafafa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   HEADER ROJO
+   ============================================= */
+.header {
+  width: 100%;
+  background-color: #c40000;
+  padding: 24px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.logo-container img {
+  width: 170px;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.logo-container span {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* =============================================
+   CONTENIDO PRINCIPAL
+   ============================================= */
+.contenedor-reporte {
+  flex: 1;
+  padding: 2rem 3rem 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* =============================================
+   BREADCRUMB
+   ============================================= */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-enlace {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #888888;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-enlace:hover {
+  color: #dc2626;
+}
+
+.breadcrumb-enlace svg {
+  width: 16px;
+  height: 16px;
+}
+
+.breadcrumb-separador {
+  color: #cccccc;
+}
+
+.breadcrumb-actual {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* =============================================
+   TÍTULO
+   ============================================= */
+.titulo-reporte {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+}
+
+/* =============================================
+   OPCIONES DE BÚSQUEDA
+   ============================================= */
+.opciones-busqueda {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 2rem 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.titulo-busqueda {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.2rem;
+}
+
+.fila-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+/* =============================================
+   BUSCADOR CON LUPA
+   ============================================= */
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  flex: 3;
+  min-width: 220px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.buscador:focus-within {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.06);
+}
+
+.buscador-icono {
+  width: 18px;
+  height: 18px;
+  color: #999999;
+  flex-shrink: 0;
+}
+
+.buscador-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  font-family: inherit;
+}
+
+.buscador-input::placeholder {
+  color: #bbbbbb;
+}
+
+/* =============================================
+   INPUT FECHAS
+   ============================================= */
+.input-fechas {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  flex: 1.5;
+  min-width: 240px;
+}
+
+.icono-calendario {
+  width: 18px;
+  height: 18px;
+  color: #999999;
+  flex-shrink: 0;
+}
+
+.fechas-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: #666666;
+  font-family: inherit;
+  cursor: default;
+}
+
+/* =============================================
+   BOTÓN BUSCAR
+   ============================================= */
+.boton-buscar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.boton-buscar:hover {
+  background: #b91c1c;
+}
+
+.boton-buscar:focus-visible {
+  outline: 3px solid #dc2626;
+  outline-offset: 3px;
+}
+
+/* =============================================
+   LÍNEA ROJA SEPARADORA
+   ============================================= */
+.linea-roja {
+  border: none;
+  height: 2px;
+  background: #dc2626;
+  margin-bottom: 2rem;
+}
+
+/* =============================================
+   TABLA DE VISITAS
+   ============================================= */
+.tabla-visitas {
+  margin-bottom: 1.5rem;
+}
+
+.titulo-tabla {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.2rem;
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.tabla thead th {
+  background: #fafafa;
+  padding: 1rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #555555;
+  text-align: left;
+  border-bottom: 2px solid #e5e5e5;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.tabla tbody td {
+  padding: 0.8rem 1.2rem;
+  font-size: 0.9rem;
+  color: #444444;
+  border-bottom: 1px solid #f0f0f0;
+  user-select: text;
+  cursor: default;
+}
+
+.tabla tbody tr:first-child td {
+  height: 0.5rem;
+}
+
+.tabla tbody tr:hover {
+  background: #fefafa;
+}
+
+/* =============================================
+   BOTÓN EXCEL
+   ============================================= */
+.fila-excel {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.boton-excel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  background: #ffffff;
+  color: #217346;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid #217346;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.boton-excel:hover {
+  background: #217346;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 115, 70, 0.2);
+}
+
+.boton-excel:focus-visible {
+  outline: 3px solid #217346;
+  outline-offset: 3px;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+  .header {
+    padding: 18px 25px;
+  }
+
+  .logo-container img {
+    width: 130px;
+  }
+
+  .logo-container span {
+    font-size: 1.4rem;
+  }
+
+  .contenedor-reporte {
+    padding: 1.5rem 1.5rem 2rem;
+  }
+
+  .titulo-reporte {
+    font-size: 1.7rem;
+  }
+
+  .fila-busqueda {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buscador,
+  .input-fechas {
+    min-width: 100%;
+  }
+
+  .boton-buscar {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 14px 16px;
+  }
+
+  .logo-container {
+    gap: 12px;
+  }
+
+  .logo-container img {
+    width: 90px;
+  }
+
+  .logo-container span {
+    font-size: 1rem;
+  }
+
+  .contenedor-reporte {
+    padding: 1rem 1rem 1.5rem;
+  }
+
+  .titulo-reporte {
+    font-size: 1.4rem;
+  }
+
+  .opciones-busqueda {
+    padding: 1.5rem 1rem 1.2rem;
+  }
+
+  .tabla thead th,
+  .tabla tbody td {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .fila-excel {
+    justify-content: stretch;
+  }
+
+  .boton-excel {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =============================================
+   PANTALLAS GRANDES
+   ============================================= */
+@media (min-width: 1400px) {
+  .contenedor-reporte {
+    max-width: 1600px;
+    padding: 3rem 4rem 4rem;
+  }
+
+  .titulo-reporte {
+    font-size: 2.6rem;
+  }
+
+  .tabla thead th,
+  .tabla tbody td {
+    padding: 1.1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+.separador-fechas {
+  color: #999999;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.fechas-input[type="date"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: #666666;
+  font-family: inherit;
+  cursor: pointer;
+  min-width: 0;
+}

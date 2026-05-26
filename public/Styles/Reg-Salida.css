@@ -1,0 +1,279 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #e9ecef;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+/* Tarjeta principal - GRANDE para PC */
+.card {
+    max-width: 750px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 42px 48px 52px 48px;
+    border: 1px solid #dddfe2;
+}
+
+/* ========== ENCABEZADO CON HORA GRANDE ========== */
+.header {
+    margin-bottom: 42px;
+    border-bottom: 2px solid #e4e6eb;
+    padding-bottom: 24px;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    font-weight: 540;
+    color: #1a2a3f;
+    line-height: 1.3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 12px;
+}
+
+#relojHora {
+    font-family: 'Courier New', 'SF Mono', monospace;
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: #f0f2f5;
+    padding: 8px 20px;
+    border-radius: 60px;
+    letter-spacing: 3px;
+    color: #1877f2;
+    display: inline-block;
+}
+
+/* ========== LISTA DE VISITANTES ========== */
+.visitantes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 42px;
+}
+
+/* Cada fila de visitante */
+.visitante-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: #f8f9fc;
+    padding: 24px 28px;
+    border-radius: 28px;
+    border: 1px solid #e2e6ea;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.visitante-row:hover {
+    background: #f0f3f8;
+    border-color: #cbd2d9;
+    transform: translateX(4px);
+}
+
+/* Checkbox GRANDE */
+.check-visitante {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    accent-color: #1877f2;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Avatar SVG - silueta persona GRANDE estilo Facebook */
+.avatar-svg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatar-svg svg {
+    width: 64px;
+    height: 64px;
+    color: #5c6b7e;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    fill: none;
+    transition: all 0.2s;
+}
+
+.visitante-row:hover .avatar-svg svg {
+    color: #1877f2;
+    transform: scale(1.02);
+}
+
+/* Nombre del visitante - GRANDE */
+.nombre {
+    font-size: 1.6rem;
+    font-weight: 550;
+    color: #1a2c3e;
+    letter-spacing: -0.3px;
+    flex: 1;
+}
+
+/* ========== CUADRADITO DE HORA REGISTRADA ========== */
+.hora-registro {
+    background: #f7f9fc;
+    border-radius: 20px;
+    padding: 20px 28px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    border: 1px solid #e2e6ea;
+}
+
+.label-registro {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1d2c3e;
+    background: #eef2f7;
+    padding: 10px 22px;
+    border-radius: 60px;
+    letter-spacing: -0.2px;
+}
+
+#horaRegistrada {
+    font-family: 'Courier New', 'SF Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 14px 20px;
+    border: 2px solid #cbd5e1;
+    border-radius: 18px;
+    background: white;
+    width: 200px;
+    text-align: center;
+    color: #0f3b5c;
+    letter-spacing: 2px;
+}
+
+/* ========== BOTONES GIGANTES ========== */
+.botones {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 32px;
+}
+
+button {
+    flex: 1;
+    padding: 18px 24px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.btn-regresar {
+    background: #e4e6eb;
+    color: #2d3e50;
+    border: 1px solid #cdd0d6;
+}
+
+.btn-regresar:hover {
+    background: #d8dadf;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.btn-confirmar {
+    background: #1877f2;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-confirmar:hover {
+    background: #1464c7;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(24, 119, 242, 0.35);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* ========== MENSAJE DE ESTADO ========== */
+.mensaje {
+    background: #f0f2f5;
+    padding: 18px 22px;
+    border-radius: 18px;
+    font-size: 1.05rem;
+    color: #2c3e50;
+    text-align: center;
+    border-left: 6px solid #1877f2;
+    line-height: 1.45;
+}
+
+/* ========== RESPONSIVE (para pantallas más pequeñas) ========== */
+@media (max-width: 700px) {
+    .card {
+        padding: 28px 24px 36px 24px;
+    }
+
+    .header h1 {
+        font-size: 1.6rem;
+    }
+
+    #relojHora {
+        font-size: 1.6rem;
+        padding: 6px 14px;
+    }
+
+    .nombre {
+        font-size: 1.2rem;
+    }
+
+    .avatar-svg svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .visitante-row {
+        padding: 16px 20px;
+        gap: 16px;
+    }
+
+    .check-visitante {
+        width: 24px;
+        height: 24px;
+    }
+
+    .hora-registro {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    #horaRegistrada {
+        width: auto;
+        font-size: 1.2rem;
+    }
+
+    .botones {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    button {
+        padding: 14px 20px;
+        font-size: 1.1rem;
+    }
+}

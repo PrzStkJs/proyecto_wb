@@ -1,0 +1,317 @@
+/* =============================================
+   RESET BÁSICO Y CONFIGURACIÓN GLOBAL
+   ============================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(160deg, #fefefe 0%, #fafafa 30%, #fff5f5 60%, #f9f9f9 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 18% 30%, rgba(220, 38, 38, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 82% 65%, rgba(220, 38, 38, 0.04) 0%, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* =============================================
+   CONTENEDOR PRINCIPAL
+   ============================================= */
+.contenedor-plugin {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  animation: entrada 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =============================================
+   TARJETA
+   ============================================= */
+.tarjeta-plugin {
+  background: #ffffff;
+  border: 2px solid rgba(220, 38, 38, 0.12);
+  border-radius: 28px;
+  padding: 3.5rem 2.5rem 2.8rem;
+  text-align: center;
+  box-shadow: 
+    0 25px 60px rgba(220, 38, 38, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(220, 38, 38, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.tarjeta-plugin::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #fca5a5 10%,
+    #dc2626 30%, 
+    #ef4444 50%, 
+    #dc2626 70%, 
+    #fca5a5 90%, 
+    transparent 100%);
+}
+
+/* =============================================
+   ICONO
+   ============================================= */
+.icono-plugin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  background: #fef2f2;
+  border: 2px solid rgba(220, 38, 38, 0.15);
+  border-radius: 50%;
+  margin: 0 auto 2rem;
+}
+
+.icono-plugin svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* =============================================
+   TÍTULO
+   ============================================= */
+.titulo-plugin {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  letter-spacing: -0.3px;
+}
+
+/* =============================================
+   DESCRIPCIÓN
+   ============================================= */
+.descripcion-plugin {
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 2.2rem;
+}
+
+/* =============================================
+   CHECKBOX
+   ============================================= */
+.checkbox-plugin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+  padding: 0.8rem 1rem;
+  background: #fafafa;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.checkbox-plugin:hover {
+  border-color: rgba(220, 38, 38, 0.3);
+  background: #fefafa;
+}
+
+.checkbox-input {
+  width: 18px;
+  height: 18px;
+  accent-color: #dc2626;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #444444;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* =============================================
+   BOTÓN ABRIR REFIRMA
+   ============================================= */
+.boton-abrir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 1.1rem;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.15);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.8rem;
+}
+
+.boton-abrir::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.boton-abrir:hover:not(:disabled) {
+  background: #b91c1c;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(220, 38, 38, 0.3), 0 4px 12px rgba(220, 38, 38, 0.15);
+}
+
+.boton-abrir:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.boton-abrir:active:not(:disabled) {
+  transform: translateY(-1px) scale(0.97);
+}
+
+.boton-abrir:disabled {
+  background: #d4d4d4;
+  color: #999999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.boton-abrir:focus-visible {
+  outline: 3px solid #dc2626;
+  outline-offset: 4px;
+}
+
+/* =============================================
+   TEXTO DE DESCARGA
+   ============================================= */
+.texto-descarga {
+  font-size: 0.88rem;
+  color: #999999;
+}
+
+.enlace-descarga {
+  color: #dc2626;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(220, 38, 38, 0.3);
+  transition: all 0.2s ease;
+  padding-bottom: 1px;
+}
+
+.enlace-descarga:hover {
+  color: #b91c1c;
+  border-bottom-color: #dc2626;
+}
+
+.enlace-descarga:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .tarjeta-plugin {
+    padding: 2.5rem 1.5rem 2rem;
+    border-radius: 22px;
+  }
+
+  .icono-plugin {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 1.5rem;
+  }
+
+  .icono-plugin svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .titulo-plugin {
+    font-size: 1.5rem;
+  }
+
+  .descripcion-plugin {
+    font-size: 0.9rem;
+  }
+
+  .boton-abrir {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .tarjeta-plugin {
+    padding: 2rem 1.2rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .titulo-plugin {
+    font-size: 1.3rem;
+  }
+}

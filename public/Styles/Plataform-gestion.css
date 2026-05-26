@@ -1,0 +1,413 @@
+/* =============================================
+   RESET BÁSICO Y CONFIGURACIÓN GLOBAL
+   ============================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   HEADER ROJO
+   ============================================= */
+.header {
+  width: 100%;
+  background-color: #c40000;
+  padding: 22px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.logo-container img {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.logo-container span {
+  color: white;
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* =============================================
+   CONTENIDO PRINCIPAL
+   ============================================= */
+.contenido-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 4rem 3rem;
+}
+
+/* =============================================
+   FILA TÍTULO + PERFIL (cuando hay sesión)
+   ============================================= */
+.fila-titulo-perfil {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* El título ocupa el espacio disponible */
+.fila-titulo-perfil .titulo-bienvenida {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+/* Perfil superior (foto + nombre + botón) */
+.perfil-superior {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid #e0e0e0;
+}
+
+.avatar-superior {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #c40000;
+}
+
+.info-superior {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nombre-superior {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
+}
+
+.form-logout-superior {
+  margin: 0;
+}
+
+.btn-cerrar-sesion-superior {
+  background: none;
+  border: 1.5px solid #c40000;
+  color: #c40000;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-cerrar-sesion-superior:hover {
+  background: #c40000;
+  color: #fff;
+}
+
+/* Ajuste del título original para que no esté centrado cuando está dentro de la fila */
+.titulo-bienvenida {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  max-width: 800px;
+}
+
+/* =============================================
+   CONTENEDOR DE CAJITAS
+   ============================================= */
+.cajitas-contenedor {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* =============================================
+   CAJITA INDIVIDUAL
+   ============================================= */
+.cajita {
+  flex: 1;
+  min-width: 350px;
+  max-width: 480px;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cajita:hover {
+  border-color: #dc2626;
+  box-shadow: 0 12px 35px rgba(220, 38, 38, 0.15);
+  transform: translateY(-4px);
+}
+
+/* =============================================
+   CONTENIDO SUPERIOR DE LA CAJITA
+   ============================================= */
+.cajita-contenido {
+  padding: 3rem 2.5rem 2rem;
+  flex: 1;
+}
+
+.cajita-etiqueta {
+  font-size: 1.2rem;
+  color: #888888;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.cajita-titulo {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* =============================================
+   FOOTER DE LA CAJITA
+   ============================================= */
+.cajita-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem 2.5rem;
+  background: #fafafa;
+  border-top: 1px solid #eeeeee;
+  color: #dc2626;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.flecha {
+  font-size: 1.4rem;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+  .header {
+    padding: 18px 25px;
+  }
+
+  .logo-container img {
+    width: 120px;
+  }
+
+  .logo-container span {
+    font-size: 1.3rem;
+  }
+
+  .contenido-panel {
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+  }
+
+  .titulo-bienvenida {
+    font-size: 1.8rem;
+  }
+
+  .cajitas-contenedor {
+    gap: 1.5rem;
+  }
+
+  .cajita {
+    min-width: 280px;
+  }
+
+  .cajita-contenido {
+    padding: 2rem 1.8rem 1.5rem;
+  }
+
+  .cajita-titulo {
+    font-size: 2rem;
+  }
+
+  .cajita-footer {
+    padding: 1rem 1.8rem;
+  }
+
+  /* Fila título + perfil en tablet */
+  .fila-titulo-perfil {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .fila-titulo-perfil .titulo-bienvenida {
+    text-align: left;
+  }
+
+  .perfil-superior {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 14px 16px;
+  }
+
+  .logo-container {
+    gap: 12px;
+  }
+
+  .logo-container img {
+    width: 90px;
+  }
+
+  .logo-container span {
+    font-size: 1rem;
+  }
+
+  .contenido-panel {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .titulo-bienvenida {
+    font-size: 1.4rem;
+  }
+
+  .cajitas-contenedor {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cajita {
+    min-width: 100%;
+    max-width: 400px;
+  }
+
+  .cajita-contenido {
+    padding: 1.8rem 1.5rem 1.2rem;
+  }
+
+  .cajita-etiqueta {
+    font-size: 1rem;
+  }
+
+  .cajita-titulo {
+    font-size: 1.8rem;
+  }
+
+  .cajita-footer {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Perfil superior en móvil */
+  .fila-titulo-perfil {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .perfil-superior {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .info-superior {
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+}
+
+/* =============================================
+   PANTALLAS GRANDES
+   ============================================= */
+@media (min-width: 1400px) {
+  .contenido-panel {
+    gap: 5rem;
+    padding: 5rem 4rem;
+  }
+
+  .titulo-bienvenida {
+    font-size: 3.7rem;
+    max-width: 900px;
+  }
+
+  .cajitas-contenedor {
+    max-width: 1200px;
+    gap: 4rem;
+  }
+
+  .cajita {
+    max-width: 520px;
+  }
+
+  .cajita-contenido {
+    padding: 3.5rem 3rem 2.5rem;
+  }
+
+  .cajita-etiqueta {
+    font-size: 1.3rem;
+  }
+
+  .cajita-titulo {
+    font-size: 3rem;
+  }
+
+  .cajita-footer {
+    padding: 1.5rem 3rem;
+    font-size: 1.2rem;
+  }
+
+  .fila-titulo-perfil {
+    max-width: 1200px;
+  }
+}

@@ -1,0 +1,485 @@
+/* =============================================
+   RESET BÁSICO Y CONFIGURACIÓN GLOBAL
+   ============================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* =============================================
+   CONTENEDOR PRINCIPAL
+   ============================================= */
+.contenedor-formulario {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  padding: 4rem 3.5rem;
+}
+
+/* =============================================
+   TÍTULO PRINCIPAL
+   ============================================= */
+.titulo-formulario {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+/* =============================================
+   TEXTO REGISTRANDO A
+   ============================================= */
+.texto-registrando {
+  font-size: 1.2rem;
+  color: #666666;
+  margin-bottom: 3rem;
+}
+
+.nombre-visitante {
+  font-weight: 700;
+  color: #dc2626;
+}
+
+/* =============================================
+   FORMULARIO
+   ============================================= */
+.formulario-visita {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* =============================================
+   FILA SUPERIOR: CAMPOS + FOTO
+   ============================================= */
+.fila-superior {
+  display: flex;
+  gap: 3rem;
+}
+
+/* =============================================
+   COLUMNA IZQUIERDA: CAMPOS
+   ============================================= */
+.columna-campos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* =============================================
+   COLUMNA DERECHA: FOTO
+   ============================================= */
+.columna-foto {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.contenedor-foto {
+  width: 220px;
+  height: 280px;
+  background: #f9f9f9;
+  border: 2px dashed #d0d0d0;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Silueta de persona */
+.silueta-persona {
+  width: 250px;
+  height: auto;
+  color: #222;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* =============================================
+   SECCIÓN (FIELDSET)
+   ============================================= */
+.seccion {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titulo-seccion {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #dc2626;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid #f0f0f0;
+  width: 100%;
+}
+
+/* =============================================
+   OPCIONES LUGAR DE TRABAJO (EN COLUMNA)
+   ============================================= */
+.opciones-lugar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 12px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.opcion:hover {
+  border-color: #dc2626;
+  background: #fefafa;
+}
+
+.opcion input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #dc2626;
+  cursor: pointer;
+}
+
+.opcion-texto {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+/* =============================================
+   GRUPO DE CAMPO
+   ============================================= */
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.etiqueta {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444444;
+}
+
+.opcional {
+  font-weight: 400;
+  color: #999999;
+  font-size: 0.9rem;
+}
+
+/* =============================================
+   INPUTS
+   ============================================= */
+.input-texto {
+  width: 100%;
+  padding: 1.1rem 1.3rem;
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  background: #f9f9f9;
+  border: 2px solid #e5e5e5;
+  border-radius: 12px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.input-texto::placeholder {
+  color: #bbbbbb;
+}
+
+.input-texto:focus {
+  border-color: #dc2626;
+  background: #ffffff;
+  box-shadow: 0 0 0 5px rgba(220, 38, 38, 0.06);
+}
+
+.input-texto:hover {
+  border-color: #d0d0d0;
+}
+
+.input-texto:hover:focus {
+  border-color: #dc2626;
+}
+
+/* =============================================
+   INPUT FIJO (SOLO LECTURA)
+   ============================================= */
+.input-fijo {
+  background: #f0f0f0;
+  color: #666666;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.input-fijo:focus {
+  border-color: #e5e5e5;
+  background: #f0f0f0;
+  box-shadow: none;
+}
+
+/* =============================================
+   FILA FECHA Y HORA
+   ============================================= */
+.fila-fecha-hora {
+  display: flex;
+  gap: 2rem;
+}
+
+.fila-fecha-hora .grupo-campo {
+  flex: 1;
+}
+
+/* =============================================
+   FILA DE BOTONES
+   ============================================= */
+.fila-botones {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+/* =============================================
+   BOTÓN ANTERIOR
+   ============================================= */
+.boton-anterior {
+  padding: 1rem 2.5rem;
+  background: #ffffff;
+  color: #666666;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.boton-anterior:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+  background: #fefafa;
+}
+
+.boton-anterior:focus-visible {
+  outline: 3px solid #dc2626;
+  outline-offset: 3px;
+}
+
+/* =============================================
+   BOTÓN REGISTRAR
+   ============================================= */
+.boton-registrar {
+  padding: 1rem 3rem;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.boton-registrar:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+}
+
+.boton-registrar:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.boton-registrar:focus-visible {
+  outline: 3px solid #dc2626;
+  outline-offset: 4px;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .contenedor-formulario {
+    padding: 3rem 2rem;
+    border-radius: 20px;
+  }
+
+  .titulo-formulario {
+    font-size: 2rem;
+  }
+
+  .texto-registrando {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .fila-superior {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .columna-foto {
+    justify-content: center;
+  }
+
+  .contenedor-foto {
+    width: 180px;
+    height: 220px;
+  }
+
+  .fila-fecha-hora {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .fila-botones {
+    flex-direction: column-reverse;
+  }
+
+  .boton-anterior,
+  .boton-registrar {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .contenedor-formulario {
+    padding: 2.5rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .titulo-formulario {
+    font-size: 1.7rem;
+  }
+
+  .texto-registrando {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .formulario-visita {
+    gap: 2.5rem;
+  }
+
+  .columna-campos {
+    gap: 2rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.1rem;
+  }
+
+  .opcion {
+    padding: 0.8rem 1rem;
+  }
+
+  .etiqueta {
+    font-size: 0.95rem;
+  }
+
+  .input-texto {
+    padding: 0.9rem 1.1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .contenedor-foto {
+    width: 160px;
+    height: 200px;
+  }
+}
+
+/* =============================================
+   PANTALLAS GRANDES
+   ============================================= */
+@media (min-width: 1200px) {
+  .contenedor-formulario {
+    max-width: 1000px;
+    padding: 5rem 4.5rem;
+  }
+
+  .titulo-formulario {
+    font-size: 3rem;
+  }
+
+  .texto-registrando {
+    font-size: 1.3rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .formulario-visita {
+    gap: 4rem;
+  }
+
+  .columna-campos {
+    gap: 3rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.4rem;
+  }
+
+  .etiqueta {
+    font-size: 1.05rem;
+  }
+
+  .input-texto {
+    padding: 1.2rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .contenedor-foto {
+    width: 260px;
+    height: 330px;
+  }
+
+  .boton-anterior,
+  .boton-registrar {
+    padding: 1.1rem 3rem;
+    font-size: 1.1rem;
+  }
+}
