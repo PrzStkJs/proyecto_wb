@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     | Sección 3 : Control de campos según lugar de trabajo
     |--------------------------------------------------------------------------
     */
-    // 🔥 Reemplazamos el "return" global por un "if" envolvente
     if (radioLugarTrabajo.length > 0 && inputEntidad && inputCargo) {
         function actualizarCamposLugar() {
             const seleccionado = document.querySelector('input[name="lugar_trabajo"]:checked');
@@ -50,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const valor = seleccionado.value;
 
-            // 👇 Tu lógica intacta 👇
+
             if (valor === 'ninguno') {
                 inputEntidad.disabled = true;
                 inputEntidad.value = '';
