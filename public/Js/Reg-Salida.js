@@ -101,24 +101,13 @@ document.addEventListener('DOMContentLoaded', function() {
     | Sección 6 : Validación y envío del formulario
     |--------------------------------------------------------------------------
     */
-    if (btnConfirmar) {
-        btnConfirmar.addEventListener('click', function() {
-            const { seleccionados } = obtenerNombresSeleccionados();
-            if (seleccionados.length > 0) {
-                this.disabled = true;
-                this.style.opacity = '0.7';
-                this.style.cursor = 'wait';
-                this.textContent = 'Guardando... ⏳';
-            }
-        });
-    }
-
     if (formulario) {
         formulario.addEventListener('submit', function(e) {
             const { seleccionados, nombres } = obtenerNombresSeleccionados();
 
+            // Validar que al menos un visitante esté seleccionado
             if (seleccionados.length === 0) {
-                e.preventDefault();
+                e.preventDefault(); // Cancelar el envío
                 mostrarMensaje('⚠️ Error: Debes seleccionar al menos un visitante para confirmar su salida.', true);
 
                 checkboxes.forEach(cb => {
@@ -131,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            // Validación pasada: deshabilitar el botón para evitar doble envío
             if (btnConfirmar) {
                 btnConfirmar.disabled = true;
                 btnConfirmar.style.opacity = '0.7';
@@ -138,9 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 btnConfirmar.textContent = 'Guardando... ⏳';
             }
 
+            // Obtener hora actual y ponerla en el campo
             const horaActual = obtenerHoraCompleta();
             if (horaRegistradaInput) horaRegistradaInput.value = horaActual;
 
+            // Mensaje de éxito
             const listaNombres = nombres.join(', ');
             mostrarMensaje(`✅ Salida confirmada para: ${listaNombres} a las ${horaActual}.`, false);
         });
@@ -165,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         checkboxes.forEach(cb => cb.style.outline = '');
 
+        // Restaurar el botón confirmar
         if (btnConfirmar) {
             btnConfirmar.disabled = false;
             btnConfirmar.style.opacity = '1';
