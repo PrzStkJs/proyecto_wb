@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Token único de la sesión QR
     const tokenQR = contenedor.dataset.token;
+    const baseUrl = contenedor.dataset.baseUrl;
     // Token CSRF de Laravel
     const tokenCSRF = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -36,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btnAutorizar.innerText = "Procesando...";
 
         // Enviar orden al servidor
-        fetch(`${window.location.origin}/proyecto_wb/public/api/autorizar-guardia/${tokenQR}`, {
+        fetch(`${baseUrl}/api/autorizar-guardia/${tokenQR}`, {
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': tokenCSRF,

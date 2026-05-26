@@ -29,7 +29,7 @@
   </header>
 
   <!-- Sección 2 : Portal de autorización -->
-  <main class="portal-main" id="portal-contenedor" data-token="{{ $token }}">
+  <main class="portal-main" id="portal-contenedor" data-token="{{ $token }}" data-base-url="{{ url('/') }}">
     <div class="portal-card">
 
       <div class="portal-icono">
