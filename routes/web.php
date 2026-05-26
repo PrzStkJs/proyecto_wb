@@ -129,7 +129,7 @@ Route::get('/auth/linkedin/callback', [GoogleController::class, 'handleLinkedinC
 Route::get('/auth/microsoft', [GoogleController::class, 'redirectToMicrosoft']);
 Route::get('/auth/microsoft/callback', [GoogleController::class, 'handleMicrosoftCallback']);
 
-Route::get('/auth/twitter/redirect', [GoogleController::class, 'redirectToTwitter']);
+Route::get('/auth/twitter', [GoogleController::class, 'redirectToTwitter']);
 Route::get('/auth/twitter/callback', [GoogleController::class, 'handleTwitterCallback']);
 
 /*
