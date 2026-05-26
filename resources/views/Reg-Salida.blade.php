@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmar salida de visitantes</title>
     <link rel="stylesheet" href="{{ asset('Styles/Reg-Salida.css') }}">
-    <script src="{{ asset('js/Reg-Salida.js') }}" defer></script>
+    <script src="{{ asset('Js/Reg-Salida.js') }}" defer></script>
 </head>
 <body>
     <div class="container">

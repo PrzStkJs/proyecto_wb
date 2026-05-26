@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visita · Registro</title>
     <link rel="stylesheet" href="{{ asset('Styles/Reg-Entr2.css') }}">
-    <script src="{{ asset('js/Reg-Entr2.js') }}" defer></script>
+    <script src="{{ asset('Js/Reg-Entr2.js') }}" defer></script>
 </head>
 <body>
 
