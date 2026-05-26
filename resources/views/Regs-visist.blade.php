@@ -59,7 +59,10 @@
                 </div>
             </div>
             <div class="barra-derecha">
-                <button onclick="window.location.href='{{ url('/Registrar_visita_p1') }}'" type="button" class="boton-nueva-visita">+ Nueva visita</button>
+                <button id="btnNuevaVisita"
+        onclick="this.disabled=true; this.textContent='Cargando...'; window.location.href='{{ url('/Registrar_visita_p1') }}'"
+        type="button"
+        class="boton-nueva-visita">+ Nueva visita</button>
             </div>
         </div>
 

@@ -42,15 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     | Sección 3 : Control de campos según lugar de trabajo
     |--------------------------------------------------------------------------
     */
-    // 🔥 Reemplazamos el "return" global por un "if" envolvente
     if (radioLugarTrabajo.length > 0 && inputEntidad && inputCargo) {
         function actualizarCamposLugar() {
             const seleccionado = document.querySelector('input[name="lugar_trabajo"]:checked');
-            if (!seleccionado) return; // Este return está bien porque solo sale de esta subfunción
+            if (!seleccionado) return;
 
             const valor = seleccionado.value;
 
-            // 👇 Tu lógica intacta 👇
             if (valor === 'ninguno') {
                 inputEntidad.disabled = true;
                 inputEntidad.value = '';
@@ -73,10 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /*
     |--------------------------------------------------------------------------
-    | Sección 4 : Protección contra doble envío del formulario
+    | Sección 4 : Protección contra doble envío del formulario (doble capa)
     |--------------------------------------------------------------------------
     */
     if (formulario && btnRegistrar) {
+        btnRegistrar.addEventListener('click', function () {
+            this.disabled = true;
+            this.style.opacity = '0.7';
+            this.style.cursor = 'wait';
+            this.textContent = 'Registrando... ⏳';
+        });
+
         formulario.addEventListener('submit', function () {
             btnRegistrar.disabled = true;
             btnRegistrar.style.opacity = '0.7';
