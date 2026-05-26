@@ -189,4 +189,30 @@ document.addEventListener('DOMContentLoaded', function() {
     if (formulario) {
         resetearTodo();
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Sección 9 : Lógica de Principal y Acompañantes
+    |--------------------------------------------------------------------------
+    */
+    const checkPrincipal = document.querySelector('input[value^="visitante_"]');
+    const checksAcompanantes = document.querySelectorAll('input[value^="acompanante_"]');
+
+    if (checkPrincipal) {
+        checkPrincipal.addEventListener('change', function() {
+            const estaMarcado = this.checked;
+
+            checksAcompanantes.forEach(cb => {
+                if (estaMarcado) {
+                    cb.checked = true;
+                    cb.style.pointerEvents = 'none';
+                    cb.parentElement.style.opacity = '0.6';
+                } else {
+                    cb.checked = false;
+                    cb.style.pointerEvents = 'auto';
+                    cb.parentElement.style.opacity = '1';
+                }
+            });
+        });
+    }
 });

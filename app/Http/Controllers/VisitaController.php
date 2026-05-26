@@ -112,37 +112,38 @@ class VisitaController extends Controller
     |--------------------------------------------------------------------------
     */
     public function registrarSalida(Request $request, $id)
-    {
-        $request->validate([
-            'salidas' => 'required|array',
-        ], [
-            'salidas.required' => 'Debes seleccionar al menos a una persona para registrar su salida.'
-        ]);
+{
+    $request->validate([
+        'salidas' => 'required|array',
+    ], [
+        'salidas.required' => 'Debes seleccionar al menos a una persona para registrar su salida.'
+    ]);
 
-        try {
-            DB::beginTransaction();
-            $horaActual = now();
+    try {
+        DB::beginTransaction();
+        $horaActual = now();
 
-            foreach ($request->salidas as $item) {
-                if (str_starts_with($item, 'visitante_')) {
-                    $visita = Visita::findOrFail($id);
-                    $visita->VTA_T_HORA_SALIDA = $horaActual;
-                    $visita->save();
-                } elseif (str_starts_with($item, 'acompanante_')) {
-                    $acompananteId = str_replace('acompanante_', '', $item);
-                    $acompanante = Acompanante::findOrFail($acompananteId);
-                    $acompanante->ACO_T_HORA_SALIDA = $horaActual;
-                    $acompanante->save();
-                }
+        foreach ($request->salidas as $item) {
+            if (str_starts_with($item, 'visitante_')) {
+                Visita::where('VTA_N_ID', $id)->update([
+                    'VTA_T_HORA_SALIDA' => $horaActual
+                ]);
             }
+            elseif (str_starts_with($item, 'acompanante_')) {
+                $acompananteId = str_replace('acompanante_', '', $item);
 
-            DB::commit();
-            return redirect()->route('visitas.index')->with('success', 'Salida registrada correctamente.');
-
-        } catch (\Exception $e) {
-            DB::rollBack();
-            dd('ERROR AL REGISTRAR SALIDA: ' . $e->getMessage());
+                Acompanante::where('ACO_N_ID', $acompananteId)->update([
+                    'ACO_T_HORA_SALIDA' => $horaActual
+                ]);
+            }
         }
+
+        DB::commit();
+        return redirect()->route('visitas.index')->with('success', 'Salida registrada correctamente.');
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return redirect()->back()->withErrors(['error' => 'Error al registrar salida: ' . $e->getMessage()]);
+    }
     }
 
     /*
