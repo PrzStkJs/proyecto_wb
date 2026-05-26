@@ -105,9 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
         formulario.addEventListener('submit', function(e) {
             const { seleccionados, nombres } = obtenerNombresSeleccionados();
 
-            // Validar que al menos un visitante esté seleccionado
             if (seleccionados.length === 0) {
-                e.preventDefault(); // Cancelar el envío
+                e.preventDefault();
                 mostrarMensaje('⚠️ Error: Debes seleccionar al menos un visitante para confirmar su salida.', true);
 
                 checkboxes.forEach(cb => {
@@ -120,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Validación pasada: deshabilitar el botón para evitar doble envío
             if (btnConfirmar) {
                 btnConfirmar.disabled = true;
                 btnConfirmar.style.opacity = '0.7';
@@ -128,11 +126,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 btnConfirmar.textContent = 'Guardando... ⏳';
             }
 
-            // Obtener hora actual y ponerla en el campo
             const horaActual = obtenerHoraCompleta();
             if (horaRegistradaInput) horaRegistradaInput.value = horaActual;
 
-            // Mensaje de éxito
             const listaNombres = nombres.join(', ');
             mostrarMensaje(`✅ Salida confirmada para: ${listaNombres} a las ${horaActual}.`, false);
         });
@@ -157,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         checkboxes.forEach(cb => cb.style.outline = '');
 
-        // Restaurar el botón confirmar
         if (btnConfirmar) {
             btnConfirmar.disabled = false;
             btnConfirmar.style.opacity = '1';
@@ -201,16 +196,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (checkPrincipal) {
         checkPrincipal.addEventListener('change', function() {
             const estaMarcado = this.checked;
-
             checksAcompanantes.forEach(cb => {
-                if (estaMarcado) {
-                    cb.checked = true;
-                    cb.style.pointerEvents = 'none';
-                    cb.parentElement.style.opacity = '0.6';
-                } else {
-                    cb.checked = false;
-                    cb.style.pointerEvents = 'auto';
-                    cb.parentElement.style.opacity = '1';
+                cb.checked = estaMarcado;
+                cb.style.pointerEvents = estaMarcado ? 'none' : 'auto';
+                cb.parentElement.style.opacity = estaMarcado ? '0.6' : '1';
+            });
+        });
+
+        checksAcompanantes.forEach(cb => {
+            cb.addEventListener('change', function(e) {
+                if (checkPrincipal.checked) {
+                    this.checked = true;
                 }
             });
         });
