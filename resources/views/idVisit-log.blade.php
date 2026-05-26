@@ -48,6 +48,6 @@
 
     </main>
 
-    <script src="{{ asset('js/idVisit-log.js') }}"></script>
+    <script src="{{ asset('Js/idVisit-log.js') }}"></script>
 </body>
 </html>
