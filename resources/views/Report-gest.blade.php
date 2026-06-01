@@ -92,6 +92,7 @@
                             <th>Fecha</th>
                             <th>DNI</th> <th>Funcionario visitado</th>
                             <th>Visitante</th>
+                            <th>Acompañantes</th>
                             <th>Entidad</th>
                             <th>Hora de ingreso</th>
                             <th>Hora de salida</th>
@@ -108,6 +109,10 @@
                                 <td>{{ $visita->funcionario->persona->PER_V_NOMBRE ?? '' }} {{ $visita->funcionario->persona->PER_V_APELLIDOS ?? '' }}</td>
 
                                 <td>{{ $visita->visitante->persona->PER_V_NOMBRE ?? '' }} {{ $visita->visitante->persona->PER_V_APELLIDOS ?? '' }}</td>
+
+                                <td> @forelse($visita->acompanantes as $acompanante) <small style="display: block; line-height: 1.2;">• {{ $acompanante->persona->PER_V_NOMBRE ?? '' }} {{ $acompanante->persona->PER_V_APELLIDOS ?? '' }}</small> @empty
+                                <span style="color: #888; font-style: italic;">Ninguno</span> @endforelse
+                                </td>
 
                                 <td>{{ $visita->visitante->entidad->ENT_V_NOMBRE ?? 'NINGUNO' }}</td>
 
