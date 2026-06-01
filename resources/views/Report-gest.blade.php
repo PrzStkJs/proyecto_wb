@@ -121,7 +121,7 @@
                                     @endif
                                 </td>
 
-                                <td>{{ $visita->MOT_N_ID ?? 'Reunión de trabajo' }}</td>
+                                <td>{{ $visita->motivo ? $visita->motivo->MOT_V_DESCRIPCION : $visita->MOT_N_ID }}</td>
                             </tr>
                         @empty
                             <tr>

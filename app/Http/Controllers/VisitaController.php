@@ -157,6 +157,7 @@ class VisitaController extends Controller
             'funcionario.persona',
             'visitante.persona',
             'visitante.entidad',
+            'motivo'
         ])->orderBy('VTA_D_FECHA', 'desc')->orderBy('VTA_T_HORA_ENTRADA', 'desc');
 
         if ($request->filled('buscar')) {
