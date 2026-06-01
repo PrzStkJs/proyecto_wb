@@ -3,7 +3,8 @@
 | Nombre      : Jesus Alexander Perez
 | Fecha       : 25/05/2026
 | Descripción : Reporte de visitas con filtros por nombre/DNI y rango de
-|               fechas, tabla de resultados y descarga a Excel.
+|               fechas, tabla de resultados, dashboard de gráficos y
+|               descarga a Excel.
 |--------------------------------------------------------------------------
 -->
 
@@ -14,6 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de Visitas</title>
     <link rel="stylesheet" href="{{ asset('Styles/Report-gest.css') }}">
+    <!-- Librería para gráficos (Chart.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <!-- Librería para generar archivos Excel en el navegador -->
     <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
     <script src="{{ asset('Js/Report-gest.js') }}" defer></script>
@@ -81,8 +84,8 @@
 
         <hr class="linea-roja">
 
-        <!-- Sección 4 : Tabla de resultados -->
-        <section class="tabla-visitas">
+        <!-- Sección 4 : Tabla de resultados (vista por defecto) -->
+        <section class="tabla-visitas" id="vistaTabla">
             <h2 class="titulo-tabla">Registro de visitas a funcionarios públicos</h2>
 
             <div class="tabla-contenedor">
@@ -138,8 +141,58 @@
             </div>
         </section>
 
-        <!-- Sección 5 : Botón de descarga Excel -->
+        <!-- Sección 5 : Dashboard de gráficos (oculto por defecto) -->
+        <section class="dashboard-graficos" id="vistaGraficos" style="display: none;">
+            <h2 class="titulo-tabla">Dashboard de Visitas</h2>
+
+            <!-- Tarjetas de resumen -->
+            <div class="tarjetas-resumen">
+                <div class="tarjeta-resumen">
+                    <span class="tarjeta-resumen-numero" id="totalVisitas">0</span>
+                    <span class="tarjeta-resumen-texto">Total visitas</span>
+                </div>
+                <div class="tarjeta-resumen">
+                    <span class="tarjeta-resumen-numero" id="promedioDiario">0</span>
+                    <span class="tarjeta-resumen-texto">Promedio diario</span>
+                </div>
+                <div class="tarjeta-resumen">
+                    <span class="tarjeta-resumen-numero" id="enCurso">0</span>
+                    <span class="tarjeta-resumen-texto">En curso</span>
+                </div>
+                <div class="tarjeta-resumen">
+                    <span class="tarjeta-resumen-numero" id="diaMasVisitas">—</span>
+                    <span class="tarjeta-resumen-texto">Día con más visitas</span>
+                </div>
+            </div>
+
+            <!-- Gráficos -->
+            <div class="graficos-grid">
+                <div class="grafico-tarjeta">
+                    <h3>Visitas por día</h3>
+                    <canvas id="graficoVisitasDia"></canvas>
+                </div>
+                <div class="grafico-tarjeta">
+                    <h3>Distribución de motivos</h3>
+                    <canvas id="graficoMotivos"></canvas>
+                </div>
+                <div class="grafico-tarjeta grafico-tarjeta--ancho">
+                    <h3>Top 5 funcionarios más visitados</h3>
+                    <canvas id="graficoFuncionarios"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 6 : Botones de acción (cambiados a un contenedor flex) -->
         <div class="fila-excel">
+            <button type="button" class="boton-graficos" id="btnVerGraficos">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                    <rect x="14" y="14" width="7" height="7"/>
+                </svg>
+                Ver gráficos
+            </button>
             <button type="button" class="boton-excel">
                 <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>

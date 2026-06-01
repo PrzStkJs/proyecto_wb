@@ -467,3 +467,134 @@ body {
   cursor: pointer;
   min-width: 0;
 }
+
+/* =============================================
+   BOTÓN VER GRÁFICOS
+   ============================================= */
+.fila-excel {
+  gap: 1rem;
+}
+
+.boton-graficos {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  background: #ffffff;
+  color: #dc2626;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid #dc2626;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.boton-graficos:hover {
+  background: #dc2626;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.2);
+}
+
+.boton-graficos:focus-visible {
+  outline: 3px solid #dc2626;
+  outline-offset: 3px;
+}
+
+/* =============================================
+   DASHBOARD DE GRÁFICOS
+   ============================================= */
+.dashboard-graficos {
+  margin-bottom: 2rem;
+}
+
+.tarjetas-resumen {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tarjeta-resumen {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+
+.tarjeta-resumen-numero {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.3rem;
+}
+
+.tarjeta-resumen-texto {
+  font-size: 0.85rem;
+  color: #888888;
+}
+
+.graficos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.grafico-tarjeta {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.grafico-tarjeta h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 1rem;
+}
+
+.grafico-tarjeta canvas {
+  max-height: 300px;
+}
+
+.grafico-tarjeta--ancho {
+  grid-column: 1 / -1;
+}
+
+/* =============================================
+   RESPONSIVE DASHBOARD
+   ============================================= */
+@media (max-width: 900px) {
+  .tarjetas-resumen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .graficos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fila-excel {
+    flex-wrap: wrap;
+  }
+
+  .boton-graficos,
+  .boton-excel {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tarjetas-resumen {
+    grid-template-columns: 1fr;
+  }
+
+  .grafico-tarjeta {
+    padding: 1rem;
+  }
+}
