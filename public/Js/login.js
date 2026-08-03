@@ -286,7 +286,6 @@
     });
 
     window.addEventListener('pageshow', (evento) => {
-    // Si la página viene de la caché del navegador (evento.persisted)
     if (evento.persisted || window.performance && window.performance.navigation.type === 2) {
         restaurarBotones();
     }
@@ -294,7 +293,6 @@
     });
 
 
-    // Inyectar keyframes dinámicos
     if (!document.getElementById('keyframes-dinamicos')) {
       const estilo = document.createElement('style');
       estilo.id = 'keyframes-dinamicos';

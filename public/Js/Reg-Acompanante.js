@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
         btnSubmit.style.cursor = 'pointer';
     }
 
-    // Asegurar que el botón arranca apagado
     deshabilitarBoton();
 
     /*
@@ -70,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
     inputDni.addEventListener('input', function () {
         const dni = inputDni.value.trim();
 
-        // Cada vez que se escribe, apagamos el botón y limpiamos los campos ocultos
         deshabilitarBoton();
         inputNombres.value = '';
         inputApellidos.value = '';
@@ -133,7 +131,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (formAcompanante) {
         formAcompanante.addEventListener('submit', function () {
-            // Deshabilitar el botón para evitar múltiples clics
             btnSubmit.disabled = true;
             btnSubmit.style.opacity = '0.7';
             btnSubmit.style.cursor = 'wait';

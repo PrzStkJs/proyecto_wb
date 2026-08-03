@@ -20,10 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!btnAutorizar || !contenedor) return;
 
-    // Token único de la sesión QR
     const tokenQR = contenedor.dataset.token;
     const baseUrl = contenedor.dataset.baseUrl;
-    // Token CSRF de Laravel
     const tokenCSRF = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     /*
@@ -32,11 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
     |--------------------------------------------------------------------------
     */
     btnAutorizar.addEventListener("click", () => {
-        // Evitar doble envío accidental
         btnAutorizar.disabled = true;
         btnAutorizar.innerText = "Procesando...";
 
-        // Enviar orden al servidor
         fetch(`${baseUrl}/api/autorizar-guardia/${tokenQR}`, {
             method: 'POST',
             headers: {
@@ -51,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(data => {
             if (data.status === 'success') {
-                // Mostrar interfaz de éxito
                 contenedor.innerHTML = `
                     <div class="portal-card" style="text-align: center;">
                         <div class="portal-icono" style="color: #28a745;">

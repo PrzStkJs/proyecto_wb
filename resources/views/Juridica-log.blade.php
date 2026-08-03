@@ -1,3 +1,12 @@
+<!--
+|--------------------------------------------------------------------------
+| Nombre      : Jesus Alexander Perez
+| Fecha       : 03/08/2026
+| Descripción : Página de verificación del plugin ClickOnce para
+|               continuar con la autenticación mediante DNI electrónico.
+|--------------------------------------------------------------------------
+-->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

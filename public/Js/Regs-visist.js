@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
             elemento.addEventListener('click', function (e) {
                 e.preventDefault();
 
-                // Obtener la URL de destino según el tipo de elemento
                 let url = '';
                 if (esEnlace) {
                     url = this.getAttribute('href');

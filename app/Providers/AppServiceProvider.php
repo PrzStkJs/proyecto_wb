@@ -34,12 +34,10 @@ class AppServiceProvider extends ServiceProvider
     */
     public function boot(): void
     {
-        // 2. Forzar HTTPS solo si NO estás en tu entorno local (Laragon)
         if (!app()->isLocal()) {
             URL::forceScheme('https');
         }
 
-        // 3. Tu configuración existente de Azure para Socialite
         \Illuminate\Support\Facades\Event::listen(
             SocialiteWasCalled::class,
             [AzureExtendSocialite::class, 'handle']

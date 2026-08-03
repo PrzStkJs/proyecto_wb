@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         checkboxContainer.style.borderColor = '#FF0000';
         checkboxContainer.style.boxShadow = '0 0 0 3px rgba(220,20,60,0.5)';
 
-        // Efecto shake en el contenedor del checkbox
         let shakeCount = 0;
         const shakeInterval = setInterval(() => {
             if (shakeCount >= 6) {
@@ -112,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     continuarBtn.addEventListener('click', handleContinue);
     checkbox.addEventListener('change', updateButtonState);
 
-    // Accesibilidad: permitir marcar/desmarcar con Enter en el label
     const label = document.querySelector('.lector-label');
     if (label) {
         label.addEventListener('keypress', (e) => {
@@ -144,7 +142,6 @@ window.addEventListener('pageshow', function(event) {
         const btn = document.getElementById('btnContinuar');
         if (btn) {
             btn.textContent = "Continuar";
-            // Se vuelve a evaluar el estado del checkbox
             const checkbox = document.getElementById('chkContinuar');
             if (checkbox) {
                 btn.disabled = !checkbox.checked;

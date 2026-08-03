@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
         btnContinuar.style.cursor = 'pointer';
     }
 
-    // El botón arranca apagado (si es que existe en la vista)
     deshabilitarBoton();
 
     /*
@@ -51,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
     |--------------------------------------------------------------------------
     */
     function actualizarMotivo() {
-        // Añadimos validación del selectedIndex para evitar errores si el select está vacío
         if (!selectFuncionario || !selectMotivo || selectFuncionario.selectedIndex === -1) return;
 
         const opcionSeleccionada = selectFuncionario.options[selectFuncionario.selectedIndex];
